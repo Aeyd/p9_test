@@ -18,7 +18,12 @@
 					"grouping": "Properties",
 					"value": "Hello world",
 					"script": "",
-					"translation": []
+					"translation": [
+						{
+							"language": "DE",
+							"value": "Hallo welt"
+						}
+					]
 				}
 			],
 			"data": []
@@ -38,7 +43,12 @@
 					"grouping": "Properties",
 					"value": "Hello world 2",
 					"script": "",
-					"translation": []
+					"translation": [
+						{
+							"language": "DE",
+							"value": "hallo welt2"
+						}
+					]
 				}
 			],
 			"data": []
@@ -53,7 +63,7 @@
 		}
 	],
 	"componentInterface": [],
-	"ver": "23.9.27.1025",
+	"ver": "23.9.27.1041",
 	"application": "test_app_deployment",
 	"title": "",
 	"description": "",
