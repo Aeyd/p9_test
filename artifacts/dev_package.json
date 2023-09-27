@@ -1,0 +1,49 @@
+{
+	"id": "97d5a90e-2698-45b4-8caf-69821e32b5b9",
+	"createdAt": "2023-09-27T07:55:31.136Z",
+	"createdBy": "admin",
+	"git": {
+		"remote": "https://github.com/Aeyd/p9_test"
+	},
+	"name": "test_p9_deployment",
+	"description": null,
+	"ver": "23.9.27.822",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "f69e8f6b-369d-48fb-ac85-93058dc88eae",
+			"application": "test_app_deployment",
+			"title": "",
+			"description": ""
+		}
+	],
+	"api": [],
+	"odataSource": [],
+	"odataMock": [],
+	"dictionary": [],
+	"jsclass": [],
+	"jsscript_group": [],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"department": [],
+	"script_scheduler": [],
+	"wf_definition": [],
+	"connector": [],
+	"events": [],
+	"media_library": [],
+	"code_snippets": [],
+	"wf_determination": [],
+	"wf_taskaction": []
+}
