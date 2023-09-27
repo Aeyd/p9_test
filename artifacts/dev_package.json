@@ -7,7 +7,7 @@
 	},
 	"name": "test_p9_deployment",
 	"description": null,
-	"ver": "23.9.27.822",
+	"ver": "23.9.27.823",
 	"enableCICD": true,
 	"apps": [
 		{

@@ -24,6 +24,26 @@
 			"data": []
 		},
 		{
+			"fieldNo": "42ea8511-a32c-4c6e-c616-2b678610c279",
+			"fieldName": "Text1",
+			"fieldParent": 0,
+			"fieldType": "nep.bootstrap.Text",
+			"script": "",
+			"customComponent": false,
+			"request": [],
+			"response": [],
+			"attributes": [
+				{
+					"attribute": "text",
+					"grouping": "Properties",
+					"value": "Hello world 2",
+					"script": "",
+					"translation": []
+				}
+			],
+			"data": []
+		},
+		{
 			"fieldNo": 99999,
 			"data": []
 		},
@@ -33,7 +53,7 @@
 		}
 	],
 	"componentInterface": [],
-	"ver": "23.9.27.958",
+	"ver": "23.9.27.1025",
 	"application": "test_app_deployment",
 	"title": "",
 	"description": "",
@@ -66,7 +86,7 @@
 	"libHighchart": false,
 	"libHighmap": false,
 	"publicAccess": false,
-	"ui5_bootstrap": false,
+	"ui5_bootstrap": true,
 	"ui5_ionic": false,
 	"useV2AppHandler": false,
 	"compilerTarget": 3,
