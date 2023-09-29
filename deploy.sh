@@ -13,8 +13,6 @@ done
 JSON_STRING=$( jq -n \
                --arg appl "$applications_data" \
                '{applications: $appl}' )
-
-JSON_STRING=$( tr -d '\n\t\r ' <<<"$JSON_STRING" )
-
+               
 ouput = $(echo -e $JSON_STRING)
 printf %s "$ouput"
