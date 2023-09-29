@@ -16,4 +16,4 @@ JSON_STRING=$( jq -n \
 
 JSON_STRING=$( tr -d '\n\t\r ' <<<"$JSON_STRING" )
 
-printf "%s" "$JSON_STRING"
+printf %s "$(echo -e $JSON_STRING)"
