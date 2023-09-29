@@ -15,4 +15,5 @@ JSON_STRING=$( jq -n \
                '{applications: $appl}' )
 
 JSON_STRING=$( tr -d '\n\t\r ' <<<"$JSON_STRING" )
-echo "${JSON_STRING}"
+
+printf "%s" "$JSON_STRING"
