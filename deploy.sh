@@ -13,5 +13,6 @@ done
 JSON_STRING=$( jq -n \
                --arg appl "$applications_data" \
                '{applications: $appl}' )
-			 
-echo "${JSON_STRING//[$'\t\r\n ']}"
+
+read -r JSON_STRING <<<"${JSON_STRING//[$'\t\r\n']}"
+echo "$JSON_STRING"
