@@ -14,4 +14,4 @@ JSON_STRING=$( jq -n \
                --arg appl "$applications_data" \
                '{applications: $appl}' )
                
-echo -n "$(printf "${$JSON_STRING}")"
+echo -n "$(printf "${JSON_STRING}")"
