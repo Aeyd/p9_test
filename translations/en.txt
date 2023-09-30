@@ -1,0 +1,2 @@
+Text=HelloWorld
+Text2=HelloWorld2
