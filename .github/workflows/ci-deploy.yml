@@ -29,13 +29,8 @@ jobs:
       - name: Pull Changes from weblate repo and translate source
         run: ./weblate_pull.sh
       - name: Commit and push changes
-        run: |
-          git config --global user.name "Aeyd"
-          git config --global user.email "adi.pali@hotmail.com"
-    
-          git add -A
-          git commit -m "translate source"
-          git push
+        # Commit all changed files back to the repository
+        uses: stefanzweifel/git-auto-commit-action@v4
 
 #  deploy: 
 
