@@ -16,11 +16,11 @@ do
     IFS== read -r key value <<< $line
     echo "$key"
   
-    jq --arg k "$key" /
-       --arg v "$value" /
-       --arg l "$lang" /
-      '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' /
-      translation.tmp > translation.tmp
+    jq /n --arg k "$key" \
+          --arg v "$value" \
+          --arg l "$lang" \
+          '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' \
+          translation.tmp > translation.tmp
   done < "$path"
 
   mv translation.tmp "$source_path"
