@@ -8,20 +8,24 @@ for path in "${translation_path[@]}"
 do
   lang=${path: -6:2}
   echo $lang
-  
+
+  tmpfile=$(mktemp)
   cp "$source_path" translation.tmp
   
   while IFS= read -r line
   do
     IFS== read -r key value <<< $line
     echo "$key"
-  
-    jq -n --arg k "$key" \
-          --arg v "$value" \
-          --arg l "$lang" \
-          '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' \
-          translation.tmp > translation.tmp
-  done < "$path"
 
-  mv translation.tmp "$source_path"
+    cp "$source_path" "$tmp" &&
+    jq --arg k "$key" \
+       --arg v "$value" \
+       --arg l "$lang" \
+       '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' \
+       "$tmp" > "$source_path" &&
+       mv "$tmp" "$source_path" &&
+       rm -f "$tmp
+
+  done < "$path"
 done 
+
