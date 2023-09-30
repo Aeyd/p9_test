@@ -3,11 +3,10 @@
 shopt -s nullglob
 translation_path=(translations/*.json)
 source_path="artifacts/Application/test_app_deployment/test_app_deployment.json"
-source_data=$(<$source_path)
 
 for path in "${translation_path[@]}"
 do
-  lang = ${path: -6:2}
+  lang=${path: -6:2}
   echo $lang
   tmp=$(mktemp)
   tmp=$(<$source_path)
@@ -15,6 +14,7 @@ do
   while IFS= read -r line
   do
     IFS=- read -r key value <<< $line
+    echo "$key $value"
     jq --arg k="$key" /
        --arg v="$value" /
        --arg l="$lang" /
