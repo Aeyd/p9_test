@@ -1,7 +1,7 @@
 #!/bin/bash
 
 shopt -s nullglob
-translation_path=(translations/*.json)
+translation_path=(translations/*.txt)
 source_path="artifacts/Application/test_app_deployment/test_app_deployment.json"
 
 for path in "${translation_path[@]}"
