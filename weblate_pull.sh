@@ -2,27 +2,27 @@
 
 shopt -s nullglob
 translation_path=(translations/*.txt)
-source_path="artifacts/Application/test_app_deployment/test_app_deployment.json"
+source_path="/artifacts/Application/test_app_deployment/test_app_deployment.json"
 
 for path in "${translation_path[@]}"
 do
   lang=${path: -6:2}
   echo $lang
   
-  tmp=$(<$source_path)
+  tmp=$(mktemp)
+  cp $source_path $tmp
   
   while IFS= read -r line
   do
-    IFS=- read -r key value <<< $line
+    IFS== read -r key value <<< $line
     echo "$key"
-    
-    echo $tmp | /
+  
     jq --arg k="$key" /
        --arg v="$value" /
        --arg l="$lang" /
       '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' /
-      > "$tmp"
+      $tmp > "$tmp"
   done < "$path"
 
-  echo "$tmp" > $source_path
+  mv "$tmp" $source_path
 done 
