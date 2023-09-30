@@ -16,7 +16,7 @@ do
     IFS== read -r key value <<< $line
     echo "$key"
   
-    jq /n --arg k "$key" \
+    jq -n --arg k "$key" \
           --arg v "$value" \
           --arg l "$lang" \
           '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' \
