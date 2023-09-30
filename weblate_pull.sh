@@ -2,7 +2,7 @@
 
 shopt -s nullglob
 translation_path=(translations/*.txt)
-source_path="/artifacts/Application/test_app_deployment/test_app_deployment.json"
+source_path="artifacts/Application/test_app_deployment/test_app_deployment.json"
 
 for path in "${translation_path[@]}"
 do
@@ -10,7 +10,7 @@ do
   echo $lang
   
   tmp=$(mktemp)
-  cp $source_path $tmp
+  cp "$source_path" "$tmp"
   
   while IFS= read -r line
   do
@@ -24,5 +24,5 @@ do
       $tmp > "$tmp"
   done < "$path"
 
-  mv $tmp $source_path
+  mv "$tmp" "$source_path"
 done 
