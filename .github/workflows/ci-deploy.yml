@@ -12,23 +12,43 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
-      - name: Make the script files executable
+      - name: Make the script files executable 
         run: chmod +x weblate_push.sh
-      - name: Run deployment
+      - name: Push changes to weblate repo
         run: ./weblate_push.sh
 
-  deploy:
+  weblate_pull:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-
+    
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
-      - name: Make the script files executable
-        run: chmod +x deploy.sh
-      - name: Run deployment
-        run: ./deploy.sh
+      - name: Make the script files executable 
+        run: chmod +x weblate_pull.sh
+      - name: Pull Changes from weblate repo and translate source
+        run: ./weblate_pull.sh
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Aeyd"
+          git config --global user.email "adi.pali@hotmail.com"
+    
+          git add -A
+          git commit -m "translate source"
+          git push
+
+#  deploy: 
+
+ #   runs-on: ubuntu-latest
+
+ #   strategy:
+ #     matrix:
+ #      node-version: [18.x]
+
+#    steps:
+ #     - name: Check out the repository to the runner
+  #      uses: actions/checkout@v4  
+ #     - name: Make the script files executable
+ #       run: chmod +x deploy.sh
+ #     - name: Run deployment
+ #       run: ./deploy.sh
