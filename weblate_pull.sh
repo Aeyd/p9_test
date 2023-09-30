@@ -9,8 +9,7 @@ do
   lang=${path: -6:2}
   echo $lang
   
-  tmp=$(mktemp)
-  cp "$source_path" "$tmp"
+  cp "$source_path" translation.tmp
   
   while IFS= read -r line
   do
@@ -21,8 +20,8 @@ do
        --arg v="$value" /
        --arg l="$lang" /
       '.objects[]? | select(.fieldname == $k ) | .attributes[]?.translation[]? | select(.language == $l ) | .value |= $v' /
-      $tmp > "$tmp"
+      translation.tmp > translation.tmp
   done < "$path"
 
-  mv "$tmp" "$source_path"
+  mv translation.tmp "$source_path"
 done 
