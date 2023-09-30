@@ -25,7 +25,5 @@ do
        "$tmp" > "$source_path" &&
        mv "$tmp" "$source_path" &&
        rm -f "$tmp
-
   done < "$path"
-done 
-
+done
