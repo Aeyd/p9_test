@@ -24,5 +24,5 @@ do
       $tmp > "$tmp"
   done < "$path"
 
-  mv "$tmp" $source_path
+  mv $tmp $source_path
 done 
